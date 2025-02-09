@@ -1,7 +1,8 @@
-import { NewBookingDialog } from '../new-booking-dialog';
+// import { NewBookingDialog } from '../new-booking-dialog';
 import Link from 'next/link';
 
-export function Nav({ onNewBooking }: { onNewBooking: (data: any) => void }) {
+export function Nav() {
+  // { onNewBooking }: { onNewBooking: (data: any) => void }
   return (
     <nav className='border-b'>
       <div className='container mx-auto flex h-16 items-center justify-between'>
@@ -11,7 +12,7 @@ export function Nav({ onNewBooking }: { onNewBooking: (data: any) => void }) {
         >
           Booking Dashboard
         </Link>
-        <NewBookingDialog onSubmit={onNewBooking} />
+        {/* <NewBookingDialog /> */}
       </div>
     </nav>
   );

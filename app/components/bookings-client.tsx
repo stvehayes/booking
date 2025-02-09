@@ -150,7 +150,7 @@ export function BookingsClient() {
     async function loadBookings() {
       try {
         // const data = await getBookings();
-        setBookings({ initialBookings });
+        setBookings(initialBookings);
       } catch (error) {
         console.error('Error loading bookings:', error);
       } finally {
@@ -186,19 +186,19 @@ export function BookingsClient() {
     currentPage * itemsPerPage
   );
 
-  const handleNewBooking = async (data: any) => {
-    try {
-      const newBooking = await createBooking({
-        guestName: data.guestName,
-        checkIn: new Date(data.checkIn),
-        checkOut: new Date(data.checkOut),
-        roomName: data.roomName,
-      });
-      setBookings([...bookings, newBooking]);
-    } catch (error) {
-      console.error('Error creating booking:', error);
-    }
-  };
+  // const handleNewBooking = async (data: any) => {
+  //   try {
+  //     const newBooking = await createBooking({
+  //       guestName: data.guestName,
+  //       checkIn: new Date(data.checkIn),
+  //       checkOut: new Date(data.checkOut),
+  //       roomName: data.roomName,
+  //     });
+  //     setBookings([...bookings, newBooking]);
+  //   } catch (error) {
+  //     console.error('Error creating booking:', error);
+  //   }
+  // };
 
   if (isLoading) {
     return <div>Loading...</div>;
@@ -206,7 +206,7 @@ export function BookingsClient() {
 
   return (
     <>
-      <Nav onNewBooking={handleNewBooking} />
+      <Nav />
       <div className='container mx-auto py-10'>
         <div className='mb-8 space-y-4'>
           <h1 className='text-3xl font-bold tracking-tight'>
