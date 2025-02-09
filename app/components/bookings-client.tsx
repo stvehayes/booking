@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { getBookings, createBooking } from '@/lib/bookings';
+// import { getBookings, createBooking } from '@/lib/bookings';
 import { Booking } from '@/app/types/booking';
 import { BookingTable } from './booking-table';
 import { Nav } from './ui/nav';
@@ -149,8 +149,8 @@ export function BookingsClient() {
   useEffect(() => {
     async function loadBookings() {
       try {
-        const data = await getBookings();
-        setBookings(data);
+        // const data = await getBookings();
+        setBookings({ initialBookings });
       } catch (error) {
         console.error('Error loading bookings:', error);
       } finally {
@@ -161,7 +161,7 @@ export function BookingsClient() {
     loadBookings();
   }, []);
 
-  const filteredAndSortedBookings = [...bookings]
+  const filteredAndSortedBookings = [...initialBookings]
     .filter((booking) =>
       booking.guestName.toLowerCase().includes(searchQuery.toLowerCase())
     )
